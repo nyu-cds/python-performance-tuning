@@ -3,16 +3,16 @@ title: "Introduction to Profilng"
 teaching: 10
 exercises: 0
 questions:
-- What does it mean to profile a program?
-- What are the different types of profiling techniques?
-- How can profiling information be used?
+- "What does it mean to profile a program?"
+- "What are the different types of profiling techniques?"
+- "How can profiling information be used?"
 objectives:
-- Learn about different ways to profile a program.
-- Understand how profile information can be used to improve a program.
+- "Learn about different ways to profile a program."
+- "Understand how profile information can be used to improve a program."
 keypoints:
-- Profiling provides useful information on where to focus optimization efforts.
-- Different techniques provide a variety of useful information.
-- Profiling can have an impact on the performance of the program.
+- "Profiling provides useful information on where to focus optimization efforts."
+- "Different techniques provide a variety of useful information."
+- "Profiling can have an impact on the performance of the program."
 ---
 In order to optimize a program, it is essential to understand where the bottlenecks are. These are the places where the program is spending most of 
 its time. A *profile* is a set of statistics that describes how often and for how long various parts of the program executed.
