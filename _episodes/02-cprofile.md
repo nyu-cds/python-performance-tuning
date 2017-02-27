@@ -1,10 +1,17 @@
 ---
-title: "cProfile"
-teaching: 45
+title: `cProfile`
+teaching: 30
 exercises: 10
 questions:
+- What is the `cProfile` module and what is it used for?
+- What type of information does `cProfile` provide?
 objectives:
+- Learn how to use `cProfile` to obtain information about bottlenecks in your program.
+- Learn about function profiling.
+- Experiment with using `cProfile` to analyze a program.
 keypoints:
+- `cProfile` provides information about the functions in a program.
+- There is some overhead when using `cProfile` to analyze a program.
 ---
 Python provides a C module called *cProfile*, and using it is quite simple. All you need to do is import the module and call its `run` function.
 

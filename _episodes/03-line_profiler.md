@@ -1,10 +1,16 @@
 ---
-title: "line_profiler"
-teaching: 25
+title: `line_profiler`
+teaching: 30
 exercises: 10
 questions:
+- What information does `line_profiler` provide?
+- How is `line_profiler` different from `cProfile`?
 objectives:
+- Learn how to use `line_profiler` to profile a program.
+- Learn how to interpret the output of `line_profiler`.
 keypoints:
+- `line_profiler` generates profiles based on the lines in a program.
+- Line based profiling can provide more information about where a program is performing badly.
 ---
 The `cProfile` module shows how much time is being spent in each function. This is a good first step for locating hotspots in a program, and is 
 frequently all that is needed to optimize the code. However, sometimes the cause of the hotspot is actually a single line in the function, and 
@@ -110,8 +116,8 @@ seconds for time information. It then shows a table with the following column he
 * `% Time` - The percentage of time spent on that line relative to the total amount of recorded time spent in the function
 * `Line Contents` - The actual source code of the line
 
-From the output, you can see that most of the time was spent at lines 7 and 8. If we are to improve the performance of this function, then we 
-should focus on these lines.
+From the output, you can see that most of the time was spent at lines 7 and 8, and also at line 10. If we are to improve the performance 
+of this function, then we should focus on these lines.
 
 As we have seen previously, one way of improving performance is to use builtin functions rather than Python code. Another way is to use a fast 
 library such as NumPy to replace Python code.
