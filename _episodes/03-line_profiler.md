@@ -1,16 +1,16 @@
 ---
-title: line_profiler
+title: "line_profiler"
 teaching: 30
 exercises: 10
 questions:
-- What information does `line_profiler` provide?
-- How is `line_profiler` different from `cProfile`?
+- "What information does `line_profiler` provide?"
+- "How is `line_profiler` different from `cProfile`?"
 objectives:
-- Learn how to use `line_profiler` to profile a program.
-- Learn how to interpret the output of `line_profiler`.
+- "Learn how to use `line_profiler` to profile a program."
+- "Learn how to interpret the output of `line_profiler`."
 keypoints:
-- `line_profiler` generates profiles based on the lines in a program.
-- Line based profiling can provide more information about where a program is performing badly.
+- "`line_profiler` generates profiles based on the lines in a program."
+- "Line based profiling can provide more information about where a program is performing badly."
 ---
 The `cProfile` module shows how much time is being spent in each function. This is a good first step for locating hotspots in a program, and is 
 frequently all that is needed to optimize the code. However, sometimes the cause of the hotspot is actually a single line in the function, and 
