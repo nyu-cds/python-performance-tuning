@@ -114,3 +114,80 @@ def approx_pi(n=10000000):
 ~~~
 {: .python}
 
+> ## Challenge
+>
+> First, start by timing how long it takes to evaluate the function using the default value of *n*.
+{: .challenge}
+
+Now, let's profile the code using the `%prun` magic command (use the cProfile module if you're running directly from Python):
+
+~~~
+%prun approx_pi()
+~~~
+{: .python}
+
+This will take a few seconds to run, then you should see the following:
+
+~~~
+         10000004 function calls in 6.522 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+ 10000000    4.433    0.000    4.433    0.000 <ipython-input-4-8fdaa89ffea3>:1(recip_square)
+        1    2.089    2.089    6.522    6.522 <ipython-input-4-8fdaa89ffea3>:4(approx_pi)
+        1    0.000    0.000    6.522    6.522 {built-in method builtins.exec}
+        1    0.000    0.000    6.522    6.522 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+~~~
+{: .output}
+
+The first line of the profile contains the number of CPU seconds it took to run the code. You should see that the code was slower overall
+than the first run. This was because it ran inside the `cProfile` module.
+
+Looking at the `tottime` column, we can see that approximately one third of the time is spent in `approx_pi` and the remainder
+is spent in `recip_square`. 
+
+In the Python Performance Tips lesson, we learnt that there is considerable overhead in a function call, so let's try the same 
+code without the extra function. Here's the source code:
+
+~~~
+def approx_pi2(n=10000000):
+    val = 0.
+    for k in range(1,n+1):
+        val += 1./k**2
+    return (6 * val)**.5
+~~~
+{: .python}
+
+Now, let's profile this code using the `%prun` magic command again:
+
+~~~
+%prun approx_pi2()
+~~~
+{: .python}
+
+Here is the output:
+
+~~~
+         4 function calls in 3.979 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    3.979    3.979    3.979    3.979 <ipython-input-7-182438f93e7d>:1(approx_pi2)
+        1    0.000    0.000    3.979    3.979 {built-in method builtins.exec}
+        1    0.000    0.000    3.979    3.979 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+~~~
+{: .output}
+
+Wow, that made a big difference! However, examining the output from this command, you should see that a significant portion of time is still 
+being spent in one function. 
+
+> ## Challenge
+> Using your knowledge from the course so far, modify the code to reduce or eliminate this overhead. Time how long your new version takes
+> to execute, and calculate the speedup using the equation *speedup = original_time / optimized_time*. For example, if the original time was
+> 2.1 seconds and the optimized time was 340ms, then the speedup would be 2210 / 340 = 6.5 times. Note that both the values need to use the same
+> units (seconds, milliseconds, microsectonds, etc.) 
+{: .challenge}
