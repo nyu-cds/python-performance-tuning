@@ -1,5 +1,5 @@
 ---
-title: `line_profiler`
+title: line_profiler
 teaching: 30
 exercises: 10
 questions:
