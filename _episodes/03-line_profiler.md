@@ -28,7 +28,7 @@ a[large_index_array] = some_other_large_array
 ~~~
 {: .python}
 
-is a hotspot that never gets explicitly shown by cProfile because there is no function call in that statement.
+This is a hotspot that never gets explicitly shown by cProfile because there is no function call in that statement.
 
 The `line_profiler` can be given functions to profile, and it will time the execution of each individual line inside those functions. 
 In a typical workflow, it is only useful to examine the line timings of a few functions because wading through the results of timing 
